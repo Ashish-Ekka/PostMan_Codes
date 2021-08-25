@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "6260c844-cff0-4a7c-8328-2eb192ca2f89",
+		"name": "Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post Student Detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"response = JSON.parse(responseBody)\r",
+							"postman.setEnvironmentVariable(\"id\",response.id)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Steve\",\r\n    \"middle_name\": \" \",\r\n    \"last_name\": \"Austin\",\r\n    \"date_of_birth\": \"23/07/1978\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/studentsDetails",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student detail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Brooklyn 99\",\r\n    \"author\": \"Updated Author\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/studentsDetails",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Technical Skills",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"language\": [\r\n    \"Java\",\r\n    \"Python\"\r\n  ],\r\n  \"yearexp\": \"2\",\r\n  \"lastused\": \"2019\",\r\n  \"st_id\": \"335281\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/technicalskills",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"technicalskills"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Complete Student Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/FinalStudentDetails/335281",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"FinalStudentDetails",
+						"335281"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Student Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Permanent_Address\": {\r\n    \"House_Number\": \"22\",\r\n    \"City\": \"Illinois\",\r\n    \"State\": \"Chicago\",\r\n    \"Country\": \"USA\",\r\n    \"PhoneNumber\": [\r\n      {\r\n        \"Std_Code\": \"+1 847\",\r\n        \"Home\": \"453637\",\r\n        \"Mobile\": \"9999000000\"\r\n      },\r\n      {\r\n        \"Std_Code\": \"+1 847\",\r\n        \"Home\": \"453638\",\r\n        \"Mobile\": \"9999900000\"\r\n      }\r\n    ]\r\n  },\r\n  \"Current_Address\": {\r\n    \"House_Number\": \"2\",\r\n    \"City\": \"Alamo\",\r\n    \"State\": \"California\",\r\n    \"Country\": \"USA\",\r\n    \"PhoneNumber\": [\r\n      {\r\n        \"Std_Code\": \"+1 849\",\r\n        \"Home\": \"453638\",\r\n        \"Mobile\": \"9999900001\"\r\n      },\r\n      {\r\n         \"Std_Code\": \"+1 849\",\r\n        \"Home\": \"453639\",\r\n        \"Mobile\": \"9999900002\"\r\n      }\r\n    ]\r\n  },\r\n  \"stId\": \"335281\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://thetestingworldapi.com/api/addresses",
+					"protocol": "http",
+					"host": [
+						"thetestingworldapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
